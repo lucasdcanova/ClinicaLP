@@ -1,0 +1,191 @@
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { Heart, Award, Stethoscope } from 'lucide-react';
+import {
+  HeroContainer,
+  BackgroundPattern,
+  FloatingElement,
+  HeroContent,
+  TextContent,
+  Subtitle,
+  Title,
+  Description,
+  ButtonGroup,
+  PrimaryButton,
+  SecondaryButton,
+  VisualContent,
+  ImageContainer,
+  HeroImage,
+  StatCard,
+  StatNumber,
+  StatLabel,
+  TechCard,
+  TechIcon,
+  TechText,
+  TechTitle,
+  TechSubtitle
+} from './styles';
+
+const Hero: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+      
+      const { clientX, clientY } = e;
+      const { width, height } = containerRef.current.getBoundingClientRect();
+      
+      const x = (clientX / width - 0.5) * 20;
+      const y = (clientY / height - 0.5) * 20;
+      
+      const floatingElements = containerRef.current.querySelectorAll('.floating');
+      floatingElements.forEach((el, index) => {
+        const element = el as HTMLElement;
+        const speed = (index + 1) * 0.5;
+        element.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut'
+      }
+    }
+  };
+
+  return (
+    <HeroContainer id="home" ref={containerRef}>
+      <BackgroundPattern />
+      
+      <FloatingElement
+        className="floating"
+        style={{ top: '10%', left: '-10%' }}
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, 180, 360]
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: 'linear'
+        }}
+      />
+      
+      <FloatingElement
+        className="floating"
+        style={{ bottom: '10%', right: '-10%' }}
+        animate={{
+          scale: [1.2, 1, 1.2],
+          rotate: [360, 180, 0]
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: 'linear'
+        }}
+      />
+
+      <HeroContent>
+        <TextContent
+          as={motion.div}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <Subtitle variants={itemVariants}>
+            Excelência em Cirurgia e Endoscopia
+          </Subtitle>
+          
+          <Title variants={itemVariants}>
+            Cuidando da sua saúde digestiva com tecnologia de ponta
+          </Title>
+          
+          <Description variants={itemVariants}>
+            Especialista em cirurgia geral e endoscopia digestiva, utilizando as mais 
+            avançadas técnicas e equipamentos de última geração para proporcionar o 
+            melhor cuidado aos nossos pacientes.
+          </Description>
+          
+          <ButtonGroup variants={itemVariants}>
+            <PrimaryButton
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Agendar Consulta
+            </PrimaryButton>
+            <SecondaryButton
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Conhecer Serviços
+            </SecondaryButton>
+          </ButtonGroup>
+        </TextContent>
+
+        <VisualContent
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          <ImageContainer
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            <HeroImage 
+              src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2000&auto=format&fit=crop"
+              alt="Equipamento médico moderno"
+            />
+          </ImageContainer>
+          
+          <StatCard
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1, duration: 0.5 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <StatNumber>15+</StatNumber>
+            <StatLabel>Anos de Experiência</StatLabel>
+          </StatCard>
+          
+          <TechCard
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.2, duration: 0.5 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <TechIcon>
+              <Stethoscope />
+            </TechIcon>
+            <TechText>
+              <TechTitle>Olympus CV-180</TechTitle>
+              <TechSubtitle>Última Geração</TechSubtitle>
+            </TechText>
+          </TechCard>
+        </VisualContent>
+      </HeroContent>
+    </HeroContainer>
+  );
+};
+
+export default Hero;

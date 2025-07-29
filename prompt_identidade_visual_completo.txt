@@ -1,0 +1,35 @@
+PROMPT COMPLETO - IDENTIDADE VISUAL DR. LUCAS DICKEL CANOVA
+
+=== CORES DA MARCA ===
+• Cor primária (fundo): #2B3A5C (azul marinho escuro)
+• Cor secundária (logo/destaque): #00E5CC (turquesa/ciano vibrante)  
+• Cor terciária (texto): #FFFFFF (branco)
+
+=== TIPOGRAFIA ===
+• Fonte principal: Sans-serif moderna, peso bold/semibold (similar a Montserrat, Open Sans ou Poppins)
+• Texto principal: "DR. LUCAS DICKEL CANOVA" - fonte bold, cor branca
+• Subtítulo: "clínica cirúrgica" - mesma família tipográfica, peso regular, cor turquesa (#00E5CC)
+
+=== LOGO ===
+• Símbolo: Círculo com letra "L" estilizada no centro
+• Design: Linhas curvas com quebras dinâmicas, criando movimento e modernidade
+• Cor do símbolo: Turquesa vibrante (#00E5CC)
+• Conceito: Representa precisão, dinamismo e profissionalismo médico
+• Layout: Logo à esquerda + texto à direita (horizontal)
+
+=== ESTILO VISUAL ===
+• Estética: Minimalista, moderna, profissional
+• Paleta: Bicolor com alto contraste (azul escuro + turquesa)
+• Aplicação: Adequado para área médica/cirúrgica
+• Características: Limpo, confiável, tecnológico
+
+=== INFORMAÇÕES DA CLÍNICA ===
+• Nome: Dr. Lucas Dickel Canova
+• Especialidade: Clínica Cirúrgica
+• Localização: Três Passos, RS
+• Serviços: Cirurgia geral, dermatológica, abdominal, endoscopia digestiva
+• Infraestrutura: Completa com equipamentos modernos
+
+=== INSTRUÇÕES PARA SITE ===
+Use esta identidade visual para criar um site profissional que transmita confiança, modernidade e expertise médica. Mantenha a paleta de cores, tipografia e estilo minimalista em todos os elementos do design.
+
