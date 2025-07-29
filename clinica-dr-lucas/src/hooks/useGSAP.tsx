@@ -133,7 +133,7 @@ export const useGSAP = () => {
       });
 
       // Animação de cards com stagger
-      const cards = gsap.utils.toArray('.stagger-card');
+      const cards = gsap.utils.toArray('.stagger-card') as HTMLElement[];
       if (cards.length > 0) {
         gsap.fromTo(cards,
           {
