@@ -41,7 +41,7 @@ export const useGSAP = () => {
             scale: 1,
             opacity: 1,
             duration: 0.8,
-            ease: 'power2.out',
+            ease: 'power2.out' as const,
             scrollTrigger: {
               trigger: element,
               start: 'top 80%'
@@ -73,7 +73,7 @@ export const useGSAP = () => {
           {
             backgroundSize: '100% 100%',
             duration: 1.5,
-            ease: 'power2.inOut',
+            ease: 'power2.inOut' as const,
             scrollTrigger: {
               trigger: element,
               start: 'top 80%'
@@ -92,7 +92,7 @@ export const useGSAP = () => {
           {
             scaleX: 1,
             duration: 1,
-            ease: 'power2.inOut',
+            ease: 'power2.inOut' as const,
             scrollTrigger: {
               trigger: element,
               start: 'top 80%'
@@ -111,7 +111,7 @@ export const useGSAP = () => {
           {
             textContent: target,
             duration: 2,
-            ease: 'power1.in',
+            ease: 'power1.in' as const,
             snap: { textContent: 1 },
             scrollTrigger: {
               trigger: element,
@@ -128,7 +128,7 @@ export const useGSAP = () => {
           duration: 2,
           repeat: -1,
           yoyo: true,
-          ease: 'power1.inOut'
+          ease: 'power1.inOut' as const
         });
       });
 
@@ -147,7 +147,7 @@ export const useGSAP = () => {
             scale: 1,
             duration: 0.8,
             stagger: 0.1,
-            ease: 'power2.out',
+            ease: 'power2.out' as const,
             scrollTrigger: {
               trigger: cards[0],
               start: 'top 80%'

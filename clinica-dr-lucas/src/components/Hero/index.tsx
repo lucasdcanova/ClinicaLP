@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut'
+        ease: 'easeOut' as const
       }
     }
   };
@@ -88,7 +88,7 @@ const Hero: React.FC = () => {
         transition={{
           duration: 20,
           repeat: Infinity,
-          ease: 'linear'
+          ease: 'linear' as const
         }}
       />
       
@@ -102,7 +102,7 @@ const Hero: React.FC = () => {
         transition={{
           duration: 25,
           repeat: Infinity,
-          ease: 'linear'
+          ease: 'linear' as const
         }}
       />
 
