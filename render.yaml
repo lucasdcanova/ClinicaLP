@@ -7,7 +7,9 @@ services:
     pullRequestPreviewsEnabled: true
     envVars:
       - key: NODE_VERSION
-        value: 18.17.0
+        value: 20.11.0
+      - key: SKIP_INSTALL_DEPS
+        value: false
     headers:
       - path: /*
         name: X-Frame-Options
