@@ -1,0 +1,10 @@
+{
+  "name": "clinica-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install": "cd clinica-dr-lucas && npm install",
+    "build": "cd clinica-dr-lucas && npm run build",
+    "start": "cd clinica-dr-lucas && npm start"
+  }
+}
