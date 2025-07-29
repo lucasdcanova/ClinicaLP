@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Award, Stethoscope } from 'lucide-react';
+import { Stethoscope } from 'lucide-react';
 import {
   HeroContainer,
   BackgroundPattern,
