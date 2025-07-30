@@ -1,7 +1,6 @@
 services:
-  - type: web
+  - type: static
     name: clinica-dr-lucas
-    env: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./clinica-dr-lucas/build
     pullRequestPreviewsEnabled: false

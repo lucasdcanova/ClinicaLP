@@ -53,6 +53,17 @@ export const HeroContent = styled.div`
 
 export const TextContent = styled(motion.div)``;
 
+export const HeroLogo = styled.img`
+  height: 120px;
+  margin-bottom: 30px;
+  opacity: 0.95;
+  
+  @media (max-width: 768px) {
+    height: 100px;
+    margin-bottom: 20px;
+  }
+`;
+
 export const Subtitle = styled(motion.p)`
   color: var(--primary-cyan);
   font-size: 18px;

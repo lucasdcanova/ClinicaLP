@@ -7,6 +7,7 @@ import {
   FloatingElement,
   HeroContent,
   TextContent,
+  HeroLogo,
   Subtitle,
   Title,
   Description,
@@ -113,6 +114,11 @@ const Hero: React.FC = () => {
           initial="hidden"
           animate="visible"
         >
+          <HeroLogo 
+            src="/images/logo_completo.svg" 
+            alt="Dr. Lucas Dickel Canova"
+          />
+          
           <Subtitle variants={itemVariants}>
             Excelência em Cirurgia e Endoscopia
           </Subtitle>

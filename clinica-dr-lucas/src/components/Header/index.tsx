@@ -44,7 +44,7 @@ const Header: React.FC = () => {
       >
         <HeaderContent>
           <Logo 
-            src="/images/logo_simbolo_centralizado.png" 
+            src="/images/logo_simbolo.svg" 
             alt="Dr. Lucas Dickel Canova"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           />
