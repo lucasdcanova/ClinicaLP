@@ -60,7 +60,7 @@ const Services: React.FC = () => {
       id: 2,
       icon: <Microscope />,
       title: 'Endoscopia Digestiva Alta',
-      description: 'Exames e procedimentos terapêuticos com equipamento Olympus CV-180 de última geração.',
+      description: 'Exames e procedimentos terapêuticos com equipamentos modernos e atualizados.',
       features: [
         'Diagnóstico precoce',
         'Procedimentos terapêuticos',

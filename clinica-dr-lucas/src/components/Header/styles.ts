@@ -27,6 +27,8 @@ export const Logo = styled.img`
   height: 50px;
   cursor: pointer;
   transition: transform 0.3s ease;
+  background: transparent;
+  mix-blend-mode: normal;
 
   &:hover {
     transform: scale(1.05);

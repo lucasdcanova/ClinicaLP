@@ -122,8 +122,8 @@ const Hero: React.FC = () => {
           </Title>
           
           <Description variants={itemVariants}>
-            Especialista em cirurgia geral e endoscopia digestiva, utilizando as mais 
-            avançadas técnicas e equipamentos de última geração para proporcionar o 
+            Médico cirurgião geral com foco em endoscopia digestiva, utilizando 
+            técnicas modernas e equipamentos atualizados para proporcionar o 
             melhor cuidado aos nossos pacientes.
           </Description>
           
@@ -164,8 +164,8 @@ const Hero: React.FC = () => {
             transition={{ delay: 1, duration: 0.5 }}
             whileHover={{ scale: 1.05 }}
           >
-            <StatNumber>15+</StatNumber>
-            <StatLabel>Anos de Experiência</StatLabel>
+            <StatNumber>5000+</StatNumber>
+            <StatLabel>Cirurgias Realizadas</StatLabel>
           </StatCard>
           
           <TechCard
@@ -178,8 +178,8 @@ const Hero: React.FC = () => {
               <Stethoscope />
             </TechIcon>
             <TechText>
-              <TechTitle>Olympus CV-180</TechTitle>
-              <TechSubtitle>Última Geração</TechSubtitle>
+              <TechTitle>Tecnologia Moderna</TechTitle>
+              <TechSubtitle>Equipamentos Atualizados</TechSubtitle>
             </TechText>
           </TechCard>
         </VisualContent>

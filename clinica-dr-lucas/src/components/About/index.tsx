@@ -42,12 +42,12 @@ const About: React.FC = () => {
     {
       icon: <Award />,
       title: 'Certificações',
-      description: 'Título de especialista em Cirurgia Geral e Endoscopia Digestiva'
+      description: 'Título de especialista em Cirurgia Geral'
     },
     {
       icon: <Briefcase />,
       title: 'Experiência',
-      description: 'Mais de 15 anos dedicados à excelência em procedimentos cirúrgicos'
+      description: 'Dedicado à excelência em procedimentos cirúrgicos e endoscópicos'
     }
   ];
 
@@ -87,8 +87,8 @@ const About: React.FC = () => {
             transition={{ delay: 0.5, type: 'spring' }}
             whileHover={{ scale: 1.05 }}
           >
-            <ExperienceNumber>15+</ExperienceNumber>
-            <ExperienceText>Anos de Experiência</ExperienceText>
+            <ExperienceNumber>4000+</ExperienceNumber>
+            <ExperienceText>Endoscopias Realizadas</ExperienceText>
           </ExperienceBadge>
         </ImageSection>
 
@@ -97,19 +97,19 @@ const About: React.FC = () => {
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <AboutSubtitle>Sobre o Especialista</AboutSubtitle>
+          <AboutSubtitle>Sobre o Médico</AboutSubtitle>
           <AboutTitle>Dr. Lucas Dickel Canova</AboutTitle>
           <AboutDescription>
-            Especialista em Cirurgia Geral e Endoscopia Digestiva, dedicado a 
+            Médico Cirurgião Geral com foco em endoscopia digestiva, dedicado a 
             proporcionar cuidados médicos de excelência com abordagem humanizada. 
-            Utilizo técnicas cirúrgicas avançadas, incluindo a inovadora colecistectomia 
+            Utilizo técnicas cirúrgicas modernas, incluindo a colecistectomia 
             com apenas 3 portais, garantindo recuperação mais rápida e menos desconforto 
             aos pacientes.
           </AboutDescription>
           <AboutDescription>
-            Com equipamentos de última geração, como o sistema Olympus CV-180, 
+            Com equipamentos modernos e atualizados, 
             realizo procedimentos endoscópicos diagnósticos e terapêuticos com 
-            máxima precisão e segurança, sempre focado no bem-estar e na qualidade 
+            precisão e segurança, sempre focado no bem-estar e na qualidade 
             de vida dos meus pacientes.
           </AboutDescription>
 
