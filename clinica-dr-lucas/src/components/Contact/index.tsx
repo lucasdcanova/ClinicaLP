@@ -112,12 +112,8 @@ const Contact: React.FC = () => {
                 <InfoTitle>Localização</InfoTitle>
               </InfoHeader>
               <InfoContent>
-                <InfoText>
-                  Rua Principal, 123 - Centro
-                </InfoText>
-                <InfoText>
-                  Três Passos, RS - CEP: 98600-000
-                </InfoText>
+                <InfoText>Rua Julio de Castilhos, 1268 - Centro</InfoText>
+                <InfoText>Três Passos, RS</InfoText>
               </InfoContent>
             </InfoCard>
 
@@ -136,10 +132,10 @@ const Contact: React.FC = () => {
               </InfoHeader>
               <InfoContent>
                 <InfoText>
-                  Consultas: <InfoLink href="tel:+555535221234">(55) 3522-1234</InfoLink>
+                  WhatsApp: <InfoLink href="https://wa.me/5555996909381">+55 55 99690-9381</InfoLink>
                 </InfoText>
                 <InfoText>
-                  WhatsApp: <InfoLink href="https://wa.me/5555999999999">(55) 99999-9999</InfoLink>
+                  E-mail: <InfoLink href="mailto:dr@lucascanova.com">dr@lucascanova.com</InfoLink>
                 </InfoText>
               </InfoContent>
             </InfoCard>
@@ -159,8 +155,8 @@ const Contact: React.FC = () => {
               </InfoHeader>
               <InfoContent>
                 <InfoText>
-                  <InfoLink href="mailto:contato@drlucascanova.com.br">
-                    contato@drlucascanova.com.br
+                  <InfoLink href="mailto:dr@lucascanova.com">
+                    dr@lucascanova.com
                   </InfoLink>
                 </InfoText>
               </InfoContent>
@@ -209,7 +205,7 @@ const Contact: React.FC = () => {
           <ActionsTitle>Agende sua consulta agora mesmo</ActionsTitle>
           <ButtonGroup>
             <ActionButton
-              href="https://wa.me/5555999999999"
+              href="https://wa.me/5555996909381"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -219,7 +215,7 @@ const Contact: React.FC = () => {
               WhatsApp
             </ActionButton>
             <SecondaryButton
-              href="tel:+555535221234"
+              href="tel:+5555996909381"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

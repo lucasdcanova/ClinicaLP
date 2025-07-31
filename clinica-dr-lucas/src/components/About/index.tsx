@@ -37,7 +37,8 @@ const About: React.FC = () => {
     {
       icon: <GraduationCap />,
       title: 'Formação Acadêmica',
-      description: 'Medicina pela Universidade Federal com especialização em Cirurgia Geral'
+      description:
+        'Medicina pela Ulbra com residência em cirurgia geral no Hospital Nossa Senhora das Graças'
     },
     {
       icon: <Award />,
@@ -139,6 +140,10 @@ const About: React.FC = () => {
               Agendar Consulta
             </PrimaryButton>
             <SecondaryButton
+              as="a"
+              href="https://www.linkedin.com/in/lucascanovamd?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
