@@ -21,10 +21,11 @@ export const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 40px;
 `;
 
 export const Logo = styled.img`
-  height: 60px;
+  height: 80px;
   cursor: pointer;
   transition: transform 0.3s ease;
   background: transparent;
@@ -38,8 +39,8 @@ export const Logo = styled.img`
   }
 
   @media (max-width: 768px) {
-    height: 50px;
-    max-width: 150px;
+    height: 60px;
+    max-width: 180px;
   }
 `;
 
@@ -47,6 +48,8 @@ export const Nav = styled.nav`
   display: flex;
   gap: 40px;
   align-items: center;
+  flex: 1;
+  justify-content: center;
 
   @media (max-width: 768px) {
     display: none;
