@@ -56,23 +56,23 @@ export const HeroContent = styled.div`
 export const TextContent = styled(motion.div)``;
 
 export const HeroLogo = styled.img`
-  height: 220px;
+  height: 260px;
   margin-bottom: 30px;
   opacity: 0.95;
   width: auto;
-  max-width: 600px;
+  max-width: 700px;
   object-fit: contain;
   display: block;
   
   @media (max-width: 968px) {
-    height: 170px;
-    max-width: 450px;
+    height: 210px;
+    max-width: 540px;
     margin: 0 auto 30px;
   }
 
   @media (max-width: 768px) {
-    height: 120px;
-    max-width: 320px;
+    height: 150px;
+    max-width: 360px;
     margin-bottom: 20px;
   }
 `;
@@ -216,7 +216,7 @@ export const HeroImage = styled.img`
   height: 100%;
   object-fit: cover;
   position: relative;
-  z-index: 1;
+  z-index: 0;
 `;
 
 export const FloatingCard = styled(motion.div)`
@@ -227,6 +227,7 @@ export const FloatingCard = styled(motion.div)`
   border-radius: 20px;
   padding: 20px;
   box-shadow: var(--shadow-medium);
+  z-index: 1;
 `;
 
 export const StatCard = styled(FloatingCard)`

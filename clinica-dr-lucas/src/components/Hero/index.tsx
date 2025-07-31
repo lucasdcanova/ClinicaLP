@@ -132,7 +132,8 @@ const Hero: React.FC = () => {
           </Subtitle>
           
           <Title variants={itemVariants}>
-            Cuidando da sua saúde digestiva com tecnologia de ponta
+            Clínica especializada em cirurgia geral e endoscopia digestiva,
+            comprometida com a excelência no cuidado da sua saúde
           </Title>
           
           <Description variants={itemVariants}>
