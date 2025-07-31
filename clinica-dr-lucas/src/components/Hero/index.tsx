@@ -31,25 +31,33 @@ const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let rafId: number;
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
       
-      const { clientX, clientY } = e;
-      const { width, height } = containerRef.current.getBoundingClientRect();
+      if (rafId) cancelAnimationFrame(rafId);
       
-      const x = (clientX / width - 0.5) * 20;
-      const y = (clientY / height - 0.5) * 20;
-      
-      const floatingElements = containerRef.current.querySelectorAll('.floating');
-      floatingElements.forEach((el, index) => {
-        const element = el as HTMLElement;
-        const speed = (index + 1) * 0.5;
-        element.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+      rafId = requestAnimationFrame(() => {
+        const { clientX, clientY } = e;
+        const { width, height } = containerRef.current!.getBoundingClientRect();
+        
+        const x = (clientX / width - 0.5) * 10;
+        const y = (clientY / height - 0.5) * 10;
+        
+        const floatingElements = containerRef.current!.querySelectorAll('.floating');
+        floatingElements.forEach((el, index) => {
+          const element = el as HTMLElement;
+          const speed = (index + 1) * 0.3;
+          element.style.transform = `translate3d(${x * speed}px, ${y * speed}px, 0)`;
+        });
       });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const containerVariants = {
@@ -69,7 +77,7 @@ const Hero: React.FC = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: 'easeOut' as const
       }
     }
@@ -83,11 +91,11 @@ const Hero: React.FC = () => {
         className="floating"
         style={{ top: '10%', left: '-10%' }}
         animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 180, 360]
+          scale: [1, 1.1, 1],
+          rotate: [0, 360]
         }}
         transition={{
-          duration: 20,
+          duration: 30,
           repeat: Infinity,
           ease: 'linear' as const
         }}
@@ -97,11 +105,11 @@ const Hero: React.FC = () => {
         className="floating"
         style={{ bottom: '10%', right: '-10%' }}
         animate={{
-          scale: [1.2, 1, 1.2],
-          rotate: [360, 180, 0]
+          scale: [1.1, 1, 1.1],
+          rotate: [360, 0]
         }}
         transition={{
-          duration: 25,
+          duration: 35,
           repeat: Infinity,
           ease: 'linear' as const
         }}
@@ -152,11 +160,11 @@ const Hero: React.FC = () => {
         <VisualContent
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
         >
           <ImageContainer
             whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
           >
             <HeroImage 
               src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2000&auto=format&fit=crop"

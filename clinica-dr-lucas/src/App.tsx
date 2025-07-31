@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { GlobalStyles } from './styles/GlobalStyles';
-import { useGSAP, useMouseFollower } from './hooks/useGSAP';
+import { useGSAP } from './hooks/useGSAP';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 
 function App() {
   const gsapRef = useGSAP();
-  useMouseFollower();
+  // useMouseFollower(); // Desabilitado temporariamente para melhorar performance
 
   useEffect(() => {
     // Adiciona fonte Poppins

@@ -53,7 +53,8 @@ export const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
+    will-change: transform;
   }
 
   button {
@@ -62,7 +63,9 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 500;
     letter-spacing: 0.02em;
-    transition: all 0.3s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   ::-webkit-scrollbar {

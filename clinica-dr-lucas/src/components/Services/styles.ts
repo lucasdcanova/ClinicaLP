@@ -67,8 +67,10 @@ export const ServiceCard = styled(motion.div)`
   padding: 40px 30px;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  will-change: transform;
+  transform: translateZ(0);
 
   &::before {
     content: '';
@@ -80,7 +82,7 @@ export const ServiceCard = styled(motion.div)`
     background: var(--gradient-primary);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease-out;
   }
 
   &:hover {
@@ -117,7 +119,7 @@ export const IconWrapper = styled.div`
     background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease-out;
   }
 
   ${ServiceCard}:hover & {
@@ -176,10 +178,11 @@ export const ServiceLink = styled(motion.a)`
   color: var(--primary-cyan);
   font-weight: 500;
   font-size: 16px;
-  transition: gap 0.3s ease;
+  transition: transform 0.2s ease;
+  will-change: transform;
 
   &:hover {
-    gap: 12px;
+    transform: translateX(4px);
   }
 `;
 

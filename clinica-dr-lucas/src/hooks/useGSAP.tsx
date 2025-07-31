@@ -19,12 +19,11 @@ export const useGSAP = () => {
           {
             opacity: 1,
             y: 0,
-            duration: 1,
+            duration: 0.6,
             scrollTrigger: {
               trigger: element,
-              start: 'top 80%',
-              end: 'bottom 20%',
-              toggleActions: 'play none none reverse'
+              start: 'top 85%',
+              once: true
             }
           }
         );
@@ -40,11 +39,12 @@ export const useGSAP = () => {
           {
             scale: 1,
             opacity: 1,
-            duration: 0.8,
+            duration: 0.5,
             ease: 'power2.out' as const,
             scrollTrigger: {
               trigger: element,
-              start: 'top 80%'
+              start: 'top 85%',
+              once: true
             }
           }
         );
@@ -72,11 +72,12 @@ export const useGSAP = () => {
           },
           {
             backgroundSize: '100% 100%',
-            duration: 1.5,
-            ease: 'power2.inOut' as const,
+            duration: 0.8,
+            ease: 'power2.out' as const,
             scrollTrigger: {
               trigger: element,
-              start: 'top 80%'
+              start: 'top 85%',
+              once: true
             }
           }
         );
@@ -91,11 +92,12 @@ export const useGSAP = () => {
           },
           {
             scaleX: 1,
-            duration: 1,
-            ease: 'power2.inOut' as const,
+            duration: 0.6,
+            ease: 'power2.out' as const,
             scrollTrigger: {
               trigger: element,
-              start: 'top 80%'
+              start: 'top 85%',
+              once: true
             }
           }
         );
@@ -110,12 +112,13 @@ export const useGSAP = () => {
           },
           {
             textContent: target,
-            duration: 2,
-            ease: 'power1.in' as const,
+            duration: 1.2,
+            ease: 'power1.out' as const,
             snap: { textContent: 1 },
             scrollTrigger: {
               trigger: element,
-              start: 'top 80%'
+              start: 'top 85%',
+              once: true
             }
           }
         );
@@ -124,11 +127,11 @@ export const useGSAP = () => {
       // Animação de movimento flutuante
       gsap.utils.toArray('.float').forEach((element: any) => {
         gsap.to(element, {
-          y: -20,
-          duration: 2,
+          y: -10,
+          duration: 3,
           repeat: -1,
           yoyo: true,
-          ease: 'power1.inOut' as const
+          ease: 'sine.inOut' as const
         });
       });
 
@@ -145,12 +148,13 @@ export const useGSAP = () => {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.8,
-            stagger: 0.1,
+            duration: 0.5,
+            stagger: 0.08,
             ease: 'power2.out' as const,
             scrollTrigger: {
               trigger: cards[0],
-              start: 'top 80%'
+              start: 'top 85%',
+              once: true
             }
           }
         );
@@ -176,7 +180,8 @@ export const useMouseFollower = () => {
       position: fixed;
       pointer-events: none;
       z-index: 9999;
-      transition: transform 0.1s ease;
+      transition: none;
+      will-change: transform;
       mix-blend-mode: difference;
     `;
     document.body.appendChild(cursor);
@@ -185,21 +190,22 @@ export const useMouseFollower = () => {
       gsap.to(cursor, {
         x: e.clientX - 10,
         y: e.clientY - 10,
-        duration: 0.1
+        duration: 0.05,
+        ease: 'none'
       });
     };
 
     const growCursor = () => {
       gsap.to(cursor, {
         scale: 1.5,
-        duration: 0.2
+        duration: 0.15
       });
     };
 
     const shrinkCursor = () => {
       gsap.to(cursor, {
         scale: 1,
-        duration: 0.2
+        duration: 0.15
       });
     };
 
