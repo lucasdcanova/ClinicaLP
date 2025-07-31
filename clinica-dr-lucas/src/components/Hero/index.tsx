@@ -128,12 +128,11 @@ const Hero: React.FC = () => {
           />
           
           <Subtitle variants={itemVariants}>
-            Excelência em Cirurgia e Endoscopia
+            Clínica especializada em cirurgia geral e endoscopia digestiva, comprometida com a excelência no cuidado da sua saúde
           </Subtitle>
           
           <Title variants={itemVariants}>
-            Clínica especializada em cirurgia geral e endoscopia digestiva,
-            comprometida com a excelência no cuidado da sua saúde
+            Dr. Lucas Dickel Canova
           </Title>
           
           <Description variants={itemVariants}>
@@ -168,8 +167,8 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.2 }}
           >
             <HeroImage 
-              src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2000&auto=format&fit=crop"
-              alt="Equipamento médico moderno"
+              src="/foto-dr-lucas.png"
+              alt="Dr. Lucas Dickel Canova"
             />
           </ImageContainer>
           

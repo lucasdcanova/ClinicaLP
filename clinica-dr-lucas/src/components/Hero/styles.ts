@@ -82,8 +82,7 @@ export const Subtitle = styled(motion.p)`
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 20px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  letter-spacing: 1px;
 `;
 
 export const Title = styled(motion.h1)`
