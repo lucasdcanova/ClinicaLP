@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Stethoscope } from 'lucide-react';
 import {
   HeroContainer,
   BackgroundPattern,
@@ -8,23 +7,11 @@ import {
   HeroContent,
   TextContent,
   HeroLogo,
-  Subtitle,
   Title,
   Description,
   ButtonGroup,
   PrimaryButton,
-  SecondaryButton,
-  VisualContent,
-  ImageContainer,
-  HeroImage,
-  StatCard,
-  StatNumber,
-  StatLabel,
-  TechCard,
-  TechIcon,
-  TechText,
-  TechTitle,
-  TechSubtitle
+  SecondaryButton
 } from './styles';
 
 const Hero: React.FC = () => {
@@ -127,18 +114,13 @@ const Hero: React.FC = () => {
             alt="Dr. Lucas Dickel Canova"
           />
           
-          <Subtitle variants={itemVariants}>
-            Clínica especializada em cirurgia geral e endoscopia digestiva, comprometida com a excelência no cuidado da sua saúde
-          </Subtitle>
-          
           <Title variants={itemVariants}>
             Dr. Lucas Dickel Canova
           </Title>
           
           <Description variants={itemVariants}>
-            Médico cirurgião geral com foco em endoscopia digestiva, utilizando 
-            técnicas modernas e equipamentos atualizados para proporcionar o 
-            melhor cuidado aos nossos pacientes.
+            Clínica especializada em cirurgia geral e endoscopia digestiva, 
+            comprometida com a excelência no cuidado da sua saúde.
           </Description>
           
           <ButtonGroup variants={itemVariants}>
@@ -157,46 +139,6 @@ const Hero: React.FC = () => {
           </ButtonGroup>
         </TextContent>
 
-        <VisualContent
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <ImageContainer
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-          >
-            <HeroImage 
-              src="/foto-dr-lucas.png"
-              alt="Dr. Lucas Dickel Canova"
-            />
-          </ImageContainer>
-          
-          <StatCard
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <StatNumber>5000+</StatNumber>
-            <StatLabel>Cirurgias Realizadas</StatLabel>
-          </StatCard>
-          
-          <TechCard
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.2, duration: 0.5 }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <TechIcon>
-              <Stethoscope />
-            </TechIcon>
-            <TechText>
-              <TechTitle>Tecnologia Moderna</TechTitle>
-              <TechSubtitle>Equipamentos Atualizados</TechSubtitle>
-            </TechText>
-          </TechCard>
-        </VisualContent>
       </HeroContent>
     </HeroContainer>
   );

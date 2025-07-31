@@ -37,43 +37,37 @@ export const FloatingElement = styled(motion.div)`
 `;
 
 export const HeroContent = styled.div`
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  display: flex;
+  justify-content: center;
   align-items: center;
   position: relative;
   z-index: 1;
-
-  @media (max-width: 968px) {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+  text-align: center;
 `;
 
 export const TextContent = styled(motion.div)``;
 
 export const HeroLogo = styled.img`
-  height: 260px;
-  margin-bottom: 30px;
+  height: 320px;
+  margin: 0 auto 40px;
   opacity: 0.95;
   width: auto;
-  max-width: 700px;
+  max-width: 800px;
   object-fit: contain;
   display: block;
   
   @media (max-width: 968px) {
-    height: 210px;
-    max-width: 540px;
-    margin: 0 auto 30px;
+    height: 260px;
+    max-width: 640px;
   }
 
   @media (max-width: 768px) {
-    height: 150px;
-    max-width: 360px;
-    margin-bottom: 20px;
+    height: 180px;
+    max-width: 420px;
+    margin-bottom: 30px;
   }
 `;
 
@@ -107,10 +101,7 @@ export const ButtonGroup = styled(motion.div)`
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-
-  @media (max-width: 968px) {
-    justify-content: center;
-  }
+  justify-content: center;
 `;
 
 export const PrimaryButton = styled(motion.button)`
