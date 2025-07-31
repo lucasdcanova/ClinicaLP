@@ -123,7 +123,7 @@ const Hero: React.FC = () => {
           animate="visible"
         >
           <HeroLogo 
-            src="/images/logo_completo.svg" 
+            src="/logo_simbolo_sem_fundo.png" 
             alt="Dr. Lucas Dickel Canova"
           />
           

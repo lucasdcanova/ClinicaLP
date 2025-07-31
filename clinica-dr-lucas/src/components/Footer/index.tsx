@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
           <FooterTop>
             <BrandSection>
               <FooterLogo 
-                src="/images/logo_completo.svg" 
+                src="/logo_simbolo_sem_fundo.png" 
                 alt="Dr. Lucas Dickel Canova"
               />
               <BrandDescription>
