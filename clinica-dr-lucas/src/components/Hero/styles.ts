@@ -56,7 +56,7 @@ export const HeroContent = styled.div`
 export const TextContent = styled(motion.div)``;
 
 export const HeroLogo = styled.img`
-  height: 180px;
+  height: 220px;
   margin-bottom: 30px;
   opacity: 0.95;
   width: auto;
@@ -65,13 +65,13 @@ export const HeroLogo = styled.img`
   display: block;
   
   @media (max-width: 968px) {
-    height: 140px;
+    height: 170px;
     max-width: 450px;
     margin: 0 auto 30px;
   }
-  
+
   @media (max-width: 768px) {
-    height: 100px;
+    height: 120px;
     max-width: 320px;
     margin-bottom: 20px;
   }
