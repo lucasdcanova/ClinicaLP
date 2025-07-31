@@ -24,14 +24,22 @@ export const HeaderContent = styled.div`
 `;
 
 export const Logo = styled.img`
-  height: 50px;
+  height: 60px;
   cursor: pointer;
   transition: transform 0.3s ease;
   background: transparent;
   mix-blend-mode: normal;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
 
   &:hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    height: 50px;
+    max-width: 150px;
   }
 `;
 

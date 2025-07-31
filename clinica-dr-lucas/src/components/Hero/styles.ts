@@ -32,6 +32,8 @@ export const FloatingElement = styled(motion.div)`
   background: var(--gradient-primary);
   opacity: 0.1;
   filter: blur(40px);
+  will-change: transform;
+  transform: translateZ(0);
 `;
 
 export const HeroContent = styled.div`
@@ -54,12 +56,23 @@ export const HeroContent = styled.div`
 export const TextContent = styled(motion.div)``;
 
 export const HeroLogo = styled.img`
-  height: 120px;
+  height: 150px;
   margin-bottom: 30px;
   opacity: 0.95;
+  width: auto;
+  max-width: 400px;
+  object-fit: contain;
+  display: block;
+  
+  @media (max-width: 968px) {
+    height: 120px;
+    max-width: 300px;
+    margin: 0 auto 30px;
+  }
   
   @media (max-width: 768px) {
     height: 100px;
+    max-width: 250px;
     margin-bottom: 20px;
   }
 `;
@@ -110,8 +123,10 @@ export const PrimaryButton = styled(motion.button)`
   font-size: 18px;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: var(--shadow-medium);
+  will-change: transform;
+  transform: translateZ(0);
 
   &::before {
     content: '';
@@ -123,7 +138,7 @@ export const PrimaryButton = styled(motion.button)`
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.3);
     transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+    transition: width 0.3s ease-out, height 0.3s ease-out;
   }
 
   &:hover {
@@ -145,7 +160,9 @@ export const SecondaryButton = styled(motion.button)`
   border-radius: 50px;
   font-size: 18px;
   border: 2px solid var(--primary-cyan);
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+  transform: translateZ(0);
 
   &:hover {
     background: var(--primary-cyan);
@@ -180,15 +197,16 @@ export const ImageContainer = styled(motion.div)`
     height: 200%;
     background: var(--gradient-primary);
     opacity: 0.3;
-    animation: rotate 20s linear infinite;
+    animation: rotate 30s linear infinite;
+    will-change: transform;
   }
 
   @keyframes rotate {
     0% {
-      transform: rotate(0deg);
+      transform: rotate(0deg) translateZ(0);
     }
     100% {
-      transform: rotate(360deg);
+      transform: rotate(360deg) translateZ(0);
     }
   }
 `;
