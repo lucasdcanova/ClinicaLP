@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   HeroContainer,
@@ -10,11 +10,16 @@ import {
   Description,
   ButtonGroup,
   PrimaryButton,
-  SecondaryButton
+  SecondaryButton,
+  MouseFollower,
+  FloatingParticle,
+  GradientOrb
 } from './styles';
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     let rafId: number;
@@ -25,10 +30,13 @@ const Hero: React.FC = () => {
       
       rafId = requestAnimationFrame(() => {
         const { clientX, clientY } = e;
-        const { width, height } = containerRef.current!.getBoundingClientRect();
+        const rect = containerRef.current!.getBoundingClientRect();
+        const { width, height } = rect;
         
         const x = (clientX / width - 0.5) * 10;
         const y = (clientY / height - 0.5) * 10;
+        
+        setMousePosition({ x: clientX, y: clientY });
         
         const floatingElements = containerRef.current!.querySelectorAll('.floating');
         floatingElements.forEach((el, index) => {
@@ -36,12 +44,29 @@ const Hero: React.FC = () => {
           const speed = (index + 1) * 0.3;
           element.style.transform = `translate3d(${x * speed}px, ${y * speed}px, 0)`;
         });
+        
+        const particles = containerRef.current!.querySelectorAll('.particle');
+        particles.forEach((el, index) => {
+          const element = el as HTMLElement;
+          const speed = (index + 1) * 0.5;
+          const offsetX = (clientX - rect.left) / width - 0.5;
+          const offsetY = (clientY - rect.top) / height - 0.5;
+          element.style.transform = `translate3d(${offsetX * speed * 30}px, ${offsetY * speed * 30}px, 0) scale(${1 + Math.abs(offsetX * offsetY) * 0.2})`;
+        });
       });
     };
+    
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => setIsHovered(false);
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    containerRef.current?.addEventListener('mouseenter', handleMouseEnter);
+    containerRef.current?.addEventListener('mouseleave', handleMouseLeave);
+    
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      containerRef.current?.removeEventListener('mouseenter', handleMouseEnter);
+      containerRef.current?.removeEventListener('mouseleave', handleMouseLeave);
       if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
@@ -69,9 +94,50 @@ const Hero: React.FC = () => {
     }
   };
 
+  const particlePositions = [
+    { top: '15%', left: '10%', size: 60, delay: 0 },
+    { top: '25%', right: '15%', size: 40, delay: 2 },
+    { bottom: '30%', left: '20%', size: 50, delay: 4 },
+    { bottom: '20%', right: '25%', size: 45, delay: 6 },
+    { top: '50%', left: '5%', size: 35, delay: 8 },
+    { top: '70%', right: '10%', size: 55, delay: 10 },
+  ];
+
   return (
     <HeroContainer id="home" ref={containerRef}>
       <BackgroundPattern />
+      
+      <MouseFollower
+        animate={{
+          x: mousePosition.x - 20,
+          y: mousePosition.y - 20,
+          scale: isHovered ? 1.5 : 1,
+          opacity: isHovered ? 0.8 : 0.6
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 500,
+          damping: 28
+        }}
+      />
+      
+      <GradientOrb top="20%" left="-20%" className="floating" />
+      <GradientOrb bottom="20%" right="-20%" className="floating" />
+      
+      {particlePositions.map((pos, index) => (
+        <FloatingParticle
+          key={index}
+          className="particle"
+          size={pos.size}
+          delay={pos.delay}
+          style={{
+            top: pos.top,
+            left: pos.left,
+            right: pos.right,
+            bottom: pos.bottom
+          }}
+        />
+      ))}
       
       <FloatingElement
         className="floating"

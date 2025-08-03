@@ -220,6 +220,79 @@ export const FloatingCard = styled(motion.div)`
   z-index: 1;
 `;
 
+export const MouseFollower = styled(motion.div)`
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  opacity: 0.6;
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: 10;
+  mix-blend-mode: screen;
+  will-change: transform;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const FloatingParticle = styled(motion.div)<{ size: number; delay: number }>`
+  position: absolute;
+  width: ${props => props.size}px;
+  height: ${props => props.size}px;
+  background: radial-gradient(circle, var(--primary-cyan) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.3;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 0.3s ease-out;
+  animation: float ${props => 15 + props.delay}s ease-in-out infinite;
+  animation-delay: ${props => props.delay}s;
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    33% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    66% {
+      transform: translateY(10px) translateX(-10px);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    width: ${props => props.size * 0.7}px;
+    height: ${props => props.size * 0.7}px;
+    opacity: 0.2;
+  }
+`;
+
+export const GradientOrb = styled(motion.div)<{ top?: string; left?: string; right?: string; bottom?: string }>`
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-cyan) 0%, transparent 60%);
+  opacity: 0.1;
+  filter: blur(60px);
+  pointer-events: none;
+  will-change: transform;
+  ${props => props.top && `top: ${props.top};`}
+  ${props => props.left && `left: ${props.left};`}
+  ${props => props.right && `right: ${props.right};`}
+  ${props => props.bottom && `bottom: ${props.bottom};`}
+  
+  @media (max-width: 768px) {
+    width: 250px;
+    height: 250px;
+    filter: blur(40px);
+    opacity: 0.08;
+  }
+`;
+
 export const StatCard = styled(FloatingCard)`
   bottom: -30px;
   left: -30px;
