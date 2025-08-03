@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
                   <Linkedin size={20} />
                 </SocialLink>
                 <SocialLink
-                  href="mailto:contato@drlucascanova.com.br"
+                  href="mailto:dr@lucascanova.com"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -141,7 +141,7 @@ const Footer: React.FC = () => {
                   <ColumnLink href="https://wa.me/5555996909381?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta">WhatsApp</ColumnLink>
                 </li>
                 <li>
-                  <ColumnLink href="mailto:contato@drlucascanova.com.br">E-mail</ColumnLink>
+                  <ColumnLink href="mailto:dr@lucascanova.com">E-mail</ColumnLink>
                 </li>
                 <li>
                   <ColumnLink href="https://wa.me/5555996909381?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta">Agendar Online</ColumnLink>
