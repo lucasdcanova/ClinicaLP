@@ -205,7 +205,7 @@ const Contact: React.FC = () => {
           <ActionsTitle>Agende sua consulta agora mesmo</ActionsTitle>
           <ButtonGroup>
             <ActionButton
-              href="https://wa.me/5555996909381"
+              href="https://wa.me/5555996909381?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -223,7 +223,10 @@ const Contact: React.FC = () => {
               Ligar Agora
             </SecondaryButton>
             <SecondaryButton
-              href="#"
+              as="a"
+              href="https://wa.me/5555996909381?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

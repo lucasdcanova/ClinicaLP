@@ -95,12 +95,26 @@ const Hero: React.FC = () => {
   };
 
   const particlePositions = [
-    { top: '15%', left: '10%', size: 60, delay: 0 },
-    { top: '25%', right: '15%', size: 40, delay: 2 },
-    { bottom: '30%', left: '20%', size: 50, delay: 4 },
-    { bottom: '20%', right: '25%', size: 45, delay: 6 },
-    { top: '50%', left: '5%', size: 35, delay: 8 },
-    { top: '70%', right: '10%', size: 55, delay: 10 },
+    { top: '5%', left: '8%', size: 45, delay: 0 },
+    { top: '15%', left: '25%', size: 60, delay: 0.5 },
+    { top: '10%', right: '12%', size: 40, delay: 1 },
+    { top: '25%', right: '30%', size: 55, delay: 1.5 },
+    { top: '35%', left: '15%', size: 35, delay: 2 },
+    { top: '40%', right: '8%', size: 50, delay: 2.5 },
+    { top: '50%', left: '5%', size: 45, delay: 3 },
+    { top: '55%', right: '20%', size: 40, delay: 3.5 },
+    { top: '65%', left: '30%', size: 55, delay: 4 },
+    { top: '70%', right: '10%', size: 35, delay: 4.5 },
+    { top: '80%', left: '18%', size: 50, delay: 5 },
+    { bottom: '35%', left: '10%', size: 45, delay: 5.5 },
+    { bottom: '30%', right: '25%', size: 60, delay: 6 },
+    { bottom: '25%', left: '35%', size: 40, delay: 6.5 },
+    { bottom: '20%', right: '15%', size: 55, delay: 7 },
+    { bottom: '15%', left: '22%', size: 35, delay: 7.5 },
+    { bottom: '10%', right: '32%', size: 50, delay: 8 },
+    { bottom: '5%', left: '12%', size: 45, delay: 8.5 },
+    { top: '45%', left: '40%', size: 40, delay: 9 },
+    { top: '30%', right: '40%', size: 55, delay: 9.5 },
   ];
 
   return (
@@ -189,12 +203,17 @@ const Hero: React.FC = () => {
             <PrimaryButton
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.open('https://wa.me/5555996909381?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta', '_blank')}
             >
               Agendar Consulta
             </PrimaryButton>
             <SecondaryButton
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const servicesSection = document.getElementById('services');
+                servicesSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Conhecer Serviços
             </SecondaryButton>

@@ -138,13 +138,13 @@ const Footer: React.FC = () => {
                   <ColumnLink href="tel:+555535221234">(55) 3522-1234</ColumnLink>
                 </li>
                 <li>
-                  <ColumnLink href="https://wa.me/5555999999999">WhatsApp</ColumnLink>
+                  <ColumnLink href="https://wa.me/5555996909381?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta">WhatsApp</ColumnLink>
                 </li>
                 <li>
                   <ColumnLink href="mailto:contato@drlucascanova.com.br">E-mail</ColumnLink>
                 </li>
                 <li>
-                  <ColumnLink href="#">Agendar Online</ColumnLink>
+                  <ColumnLink href="https://wa.me/5555996909381?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta">Agendar Online</ColumnLink>
                 </li>
               </ColumnList>
             </FooterColumn>

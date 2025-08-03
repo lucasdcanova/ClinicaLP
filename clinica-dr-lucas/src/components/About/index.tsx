@@ -136,6 +136,7 @@ const About: React.FC = () => {
             <PrimaryButton
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.open('https://wa.me/5555996909381?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta', '_blank')}
             >
               Agendar Consulta
             </PrimaryButton>

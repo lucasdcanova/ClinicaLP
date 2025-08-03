@@ -248,18 +248,53 @@ export const FloatingParticle = styled(motion.div)<{ size: number; delay: number
   pointer-events: none;
   will-change: transform;
   transition: transform 0.3s ease-out;
-  animation: float ${props => 15 + props.delay}s ease-in-out infinite;
+  animation: 
+    float ${props => 15 + props.delay}s ease-in-out infinite,
+    paradox ${props => 20 + props.delay * 0.5}s ease-in-out infinite,
+    pulse ${props => 4 + props.delay * 0.3}s ease-in-out infinite;
   animation-delay: ${props => props.delay}s;
   
   @keyframes float {
     0%, 100% {
-      transform: translateY(0) translateX(0);
+      transform: translateY(0) translateX(0) rotate(0deg);
     }
-    33% {
-      transform: translateY(-20px) translateX(10px);
+    25% {
+      transform: translateY(-30px) translateX(20px) rotate(90deg);
     }
-    66% {
-      transform: translateY(10px) translateX(-10px);
+    50% {
+      transform: translateY(20px) translateX(-30px) rotate(180deg);
+    }
+    75% {
+      transform: translateY(-10px) translateX(10px) rotate(270deg);
+    }
+  }
+  
+  @keyframes paradox {
+    0%, 100% {
+      transform: translateZ(0) scale(1) rotateX(0deg) rotateY(0deg);
+    }
+    20% {
+      transform: translateZ(50px) scale(1.2) rotateX(180deg) rotateY(0deg);
+    }
+    40% {
+      transform: translateZ(-50px) scale(0.8) rotateX(360deg) rotateY(180deg);
+    }
+    60% {
+      transform: translateZ(30px) scale(1.1) rotateX(180deg) rotateY(360deg);
+    }
+    80% {
+      transform: translateZ(-30px) scale(0.9) rotateX(0deg) rotateY(180deg);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.3;
+      filter: blur(0px) brightness(1);
+    }
+    50% {
+      opacity: 0.6;
+      filter: blur(2px) brightness(1.5);
     }
   }
   
