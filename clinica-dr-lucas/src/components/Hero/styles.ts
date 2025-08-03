@@ -51,22 +51,22 @@ export const HeroContent = styled.div`
 export const TextContent = styled(motion.div)``;
 
 export const HeroLogo = styled.img`
-  height: 480px;
+  height: 320px;
   margin: 0 auto 40px;
   opacity: 0.95;
   width: auto;
-  max-width: 1200px;
+  max-width: 800px;
   object-fit: contain;
   display: block;
   
   @media (max-width: 968px) {
-    height: 380px;
-    max-width: 900px;
+    height: 260px;
+    max-width: 650px;
   }
 
   @media (max-width: 768px) {
-    height: 280px;
-    max-width: 600px;
+    height: 180px;
+    max-width: 450px;
     margin-bottom: 30px;
   }
 `;
