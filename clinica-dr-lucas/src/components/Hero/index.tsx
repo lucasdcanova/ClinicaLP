@@ -7,7 +7,6 @@ import {
   HeroContent,
   TextContent,
   HeroLogo,
-  Title,
   Description,
   ButtonGroup,
   PrimaryButton,
@@ -114,9 +113,6 @@ const Hero: React.FC = () => {
             alt="Dr. Lucas Dickel Canova"
           />
           
-          <Title variants={itemVariants}>
-            Dr. Lucas Dickel Canova
-          </Title>
           
           <Description variants={itemVariants}>
             Clínica especializada em cirurgia geral e endoscopia digestiva, 
