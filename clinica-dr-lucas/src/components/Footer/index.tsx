@@ -135,7 +135,7 @@ const Footer: React.FC = () => {
               <ColumnTitle>Contato Rápido</ColumnTitle>
               <ColumnList>
                 <li>
-                  <ColumnLink href="tel:+555535221234">(55) 3522-1234</ColumnLink>
+                  <ColumnLink href="tel:+5555996909381">(55) 99690-9381</ColumnLink>
                 </li>
                 <li>
                   <ColumnLink href="https://wa.me/5555996909381?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta">WhatsApp</ColumnLink>
