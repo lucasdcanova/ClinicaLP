@@ -58,13 +58,19 @@ export const HeroLogo = styled.img`
   max-width: 800px;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.15));
+  filter: 
+    drop-shadow(0 8px 32px rgba(0, 0, 0, 0.3))
+    drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2))
+    drop-shadow(0 0 40px rgba(0, 206, 209, 0.15));
   transition: transform 0.3s ease, filter 0.3s ease;
   cursor: pointer;
   
   &:hover {
     transform: translateY(-5px) scale(1.02);
-    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.2));
+    filter: 
+      drop-shadow(0 12px 40px rgba(0, 0, 0, 0.35))
+      drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25))
+      drop-shadow(0 0 60px rgba(0, 206, 209, 0.25));
   }
   
   @media (max-width: 968px) {
