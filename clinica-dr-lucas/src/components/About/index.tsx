@@ -1,14 +1,11 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import { User, GraduationCap, Award, Briefcase } from 'lucide-react';
+import { GraduationCap, Award, Briefcase } from 'lucide-react';
 import {
   AboutContainer,
   AboutContent,
   ImageSection,
   DoctorImageContainer,
-  DoctorImagePlaceholder,
-  PlaceholderIcon,
-  PlaceholderText,
   ExperienceBadge,
   ExperienceNumber,
   ExperienceText,
@@ -72,14 +69,11 @@ const About: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <DoctorImageContainer>
-            <DoctorImagePlaceholder>
-              <PlaceholderIcon>
-                <User />
-              </PlaceholderIcon>
-              <PlaceholderText>
-                Espaço reservado para foto do Dr. Lucas Dickel Canova
-              </PlaceholderText>
-            </DoctorImagePlaceholder>
+            <img 
+              src="/doctor-photo.jpeg" 
+              alt="Dr. Lucas Dickel Canova"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
           </DoctorImageContainer>
           
           <ExperienceBadge
