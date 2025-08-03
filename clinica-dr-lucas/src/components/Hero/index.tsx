@@ -48,10 +48,23 @@ const Hero: React.FC = () => {
         const particles = containerRef.current!.querySelectorAll('.particle');
         particles.forEach((el, index) => {
           const element = el as HTMLElement;
-          const speed = (index + 1) * 0.5;
-          const offsetX = (clientX - rect.left) / width - 0.5;
-          const offsetY = (clientY - rect.top) / height - 0.5;
-          element.style.transform = `translate3d(${offsetX * speed * 30}px, ${offsetY * speed * 30}px, 0) scale(${1 + Math.abs(offsetX * offsetY) * 0.2})`;
+          const rect = element.getBoundingClientRect();
+          const particleCenterX = rect.left + rect.width / 2;
+          const particleCenterY = rect.top + rect.height / 2;
+          
+          const deltaX = clientX - particleCenterX;
+          const deltaY = clientY - particleCenterY;
+          const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+          
+          const maxDistance = 400;
+          const force = Math.max(0, 1 - distance / maxDistance);
+          const speed = (index % 3 + 1) * 0.15;
+          
+          const moveX = (deltaX * force * speed);
+          const moveY = (deltaY * force * speed);
+          
+          element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(${1 + force * 0.3})`;
+          element.style.opacity = `${0.3 + force * 0.4}`;
         });
       });
     };

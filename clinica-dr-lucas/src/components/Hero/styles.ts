@@ -58,6 +58,14 @@ export const HeroLogo = styled.img`
   max-width: 800px;
   object-fit: contain;
   display: block;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-5px) scale(1.02);
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.2));
+  }
   
   @media (max-width: 968px) {
     height: 260px;
@@ -246,8 +254,8 @@ export const FloatingParticle = styled(motion.div)<{ size: number; delay: number
   border-radius: 50%;
   opacity: 0.3;
   pointer-events: none;
-  will-change: transform;
-  transition: transform 0.3s ease-out;
+  will-change: transform, opacity;
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease-out;
   animation: 
     float ${props => 15 + props.delay}s ease-in-out infinite,
     paradox ${props => 20 + props.delay * 0.5}s ease-in-out infinite,
