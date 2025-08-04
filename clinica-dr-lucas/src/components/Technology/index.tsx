@@ -130,6 +130,9 @@ const Technology: React.FC = () => {
               <Image 
                 src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?q=80&w=2000&auto=format&fit=crop"
                 alt="Olympus CV-180"
+                loading="lazy"
+                width="600"
+                height="400"
               />
             </EquipmentImage>
 

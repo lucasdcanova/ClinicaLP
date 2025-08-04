@@ -73,6 +73,9 @@ const About: React.FC = () => {
               src="/doctor-photo.jpeg" 
               alt="Dr. Lucas Dickel Canova"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              loading="lazy"
+              width="400"
+              height="400"
             />
           </DoctorImageContainer>
           

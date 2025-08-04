@@ -248,6 +248,8 @@ const Hero: React.FC = () => {
           <HeroLogo 
             src="/logo-hero-completo.png" 
             alt="Dr. Lucas Dickel Canova"
+            loading="eager"
+            fetchPriority="high"
           />
           
           

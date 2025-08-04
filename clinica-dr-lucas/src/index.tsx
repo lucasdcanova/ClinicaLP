@@ -3,6 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { initializePerformanceOptimizations } from './utils/performanceOptimizations';
+import { injectCriticalCSS } from './utils/criticalCSS';
+
+// Inject critical CSS immediately
+injectCriticalCSS();
+
+// Initialize performance optimizations
+initializePerformanceOptimizations();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
