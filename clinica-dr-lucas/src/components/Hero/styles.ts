@@ -59,18 +59,20 @@ export const HeroLogo = styled.img`
   object-fit: contain;
   display: block;
   filter: 
-    drop-shadow(0 8px 32px rgba(0, 0, 0, 0.3))
-    drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2))
-    drop-shadow(0 0 40px rgba(0, 206, 209, 0.15));
+    drop-shadow(0 12px 48px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 6px 16px rgba(0, 0, 0, 0.4))
+    drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3))
+    drop-shadow(0 0 60px rgba(0, 206, 209, 0.25));
   transition: transform 0.3s ease, filter 0.3s ease;
   cursor: pointer;
   
   &:hover {
     transform: translateY(-5px) scale(1.02);
     filter: 
-      drop-shadow(0 12px 40px rgba(0, 0, 0, 0.35))
-      drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25))
-      drop-shadow(0 0 60px rgba(0, 206, 209, 0.25));
+      drop-shadow(0 16px 64px rgba(0, 0, 0, 0.6))
+      drop-shadow(0 8px 24px rgba(0, 0, 0, 0.5))
+      drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4))
+      drop-shadow(0 0 80px rgba(0, 206, 209, 0.35));
   }
   
   @media (max-width: 968px) {
@@ -260,8 +262,9 @@ export const FloatingParticle = styled(motion.div)<{ size: number; delay: number
   border-radius: 50%;
   opacity: 0.3;
   pointer-events: none;
-  will-change: transform, opacity;
-  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease-out;
+  will-change: transform, opacity, filter;
+  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.2s ease-out, filter 0.2s ease-out;
+  filter: blur(1px);
   animation: 
     float ${props => 15 + props.delay}s ease-in-out infinite,
     paradox ${props => 20 + props.delay * 0.5}s ease-in-out infinite,
@@ -304,11 +307,11 @@ export const FloatingParticle = styled(motion.div)<{ size: number; delay: number
   @keyframes pulse {
     0%, 100% {
       opacity: 0.3;
-      filter: blur(0px) brightness(1);
+      filter: blur(2px) brightness(1);
     }
     50% {
       opacity: 0.6;
-      filter: blur(2px) brightness(1.5);
+      filter: blur(8px) brightness(1.5);
     }
   }
   

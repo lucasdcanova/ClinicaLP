@@ -56,15 +56,15 @@ const Hero: React.FC = () => {
           const deltaY = clientY - particleCenterY;
           const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
           
-          const maxDistance = 400;
+          const maxDistance = 600;
           const force = Math.max(0, 1 - distance / maxDistance);
-          const speed = (index % 3 + 1) * 0.15;
+          const speed = (index % 3 + 1) * 0.35;
           
           const moveX = (deltaX * force * speed);
           const moveY = (deltaY * force * speed);
           
-          element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(${1 + force * 0.3})`;
-          element.style.opacity = `${0.3 + force * 0.4}`;
+          element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(${1 + force * 0.5})`;
+          element.style.opacity = `${0.3 + force * 0.6}`;
         });
       });
     };
