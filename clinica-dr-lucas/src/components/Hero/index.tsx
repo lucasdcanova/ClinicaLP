@@ -65,11 +65,10 @@ const Hero: React.FC = () => {
           const moveY = (deltaY * force * speed * paradoxFactor);
           
           const scale = 1 + force * 0.8;
-          const rotation = force * 180;
           
-          element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(${scale}) rotate(${rotation}deg)`;
+          element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(${scale})`;
           element.style.opacity = `${0.3 + force * 0.7}`;
-          element.style.filter = `blur(${2 + (1 - force) * 6}px)`;
+          element.style.filter = `blur(${4 + (1 - force) * 12}px)`;
         });
       });
     };
@@ -153,6 +152,26 @@ const Hero: React.FC = () => {
     { bottom: '8%', right: '15%', size: 44, delay: 3.8 },
     { top: '3%', left: '50%', size: 40, delay: 4.3 },
     { top: '85%', right: '50%', size: 46, delay: 5.6 },
+    { top: '12%', left: '60%', size: 42, delay: 0.3 },
+    { top: '20%', right: '22%', size: 48, delay: 0.8 },
+    { top: '28%', left: '5%', size: 36, delay: 1.2 },
+    { top: '33%', right: '45%', size: 52, delay: 1.7 },
+    { top: '46%', left: '25%', size: 44, delay: 2.1 },
+    { top: '52%', right: '15%', size: 38, delay: 2.6 },
+    { top: '60%', left: '45%', size: 50, delay: 3.1 },
+    { top: '68%', right: '38%', size: 42, delay: 3.6 },
+    { top: '75%', left: '10%', size: 46, delay: 4.1 },
+    { top: '82%', right: '25%', size: 40, delay: 4.6 },
+    { bottom: '45%', left: '18%', size: 48, delay: 5.1 },
+    { bottom: '40%', right: '30%', size: 44, delay: 5.6 },
+    { bottom: '33%', left: '50%', size: 38, delay: 6.1 },
+    { bottom: '27%', right: '12%', size: 52, delay: 6.6 },
+    { bottom: '23%', left: '38%', size: 42, delay: 7.1 },
+    { bottom: '17%', right: '48%', size: 46, delay: 7.6 },
+    { bottom: '13%', left: '20%', size: 50, delay: 8.1 },
+    { bottom: '7%', right: '25%', size: 40, delay: 8.6 },
+    { top: '7%', left: '35%', size: 44, delay: 0.1 },
+    { top: '88%', right: '40%', size: 48, delay: 5.9 },
   ];
 
   return (

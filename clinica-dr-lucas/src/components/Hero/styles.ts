@@ -264,10 +264,9 @@ export const FloatingParticle = styled(motion.div)<{ size: number; delay: number
   pointer-events: none;
   will-change: transform, opacity, filter;
   transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.2s ease-out, filter 0.2s ease-out;
-  filter: blur(8px);
+  filter: blur(16px);
   animation: 
     float ${props => 15 + props.delay}s ease-in-out infinite,
-    paradox ${props => 20 + props.delay * 0.5}s ease-in-out infinite,
     pulse ${props => 4 + props.delay * 0.3}s ease-in-out infinite;
   animation-delay: ${props => props.delay}s;
   
@@ -286,32 +285,15 @@ export const FloatingParticle = styled(motion.div)<{ size: number; delay: number
     }
   }
   
-  @keyframes paradox {
-    0%, 100% {
-      transform: translateZ(0) scale(1) rotateX(0deg) rotateY(0deg);
-    }
-    20% {
-      transform: translateZ(50px) scale(1.2) rotateX(180deg) rotateY(0deg);
-    }
-    40% {
-      transform: translateZ(-50px) scale(0.8) rotateX(360deg) rotateY(180deg);
-    }
-    60% {
-      transform: translateZ(30px) scale(1.1) rotateX(180deg) rotateY(360deg);
-    }
-    80% {
-      transform: translateZ(-30px) scale(0.9) rotateX(0deg) rotateY(180deg);
-    }
-  }
   
   @keyframes pulse {
     0%, 100% {
       opacity: 0.3;
-      filter: blur(8px) brightness(1);
+      filter: blur(16px) brightness(1);
     }
     50% {
       opacity: 0.7;
-      filter: blur(16px) brightness(1.8);
+      filter: blur(24px) brightness(1.8);
     }
   }
   
