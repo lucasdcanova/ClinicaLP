@@ -60,11 +60,16 @@ const Hero: React.FC = () => {
           const force = Math.max(0, 1 - distance / maxDistance);
           const speed = (index % 3 + 1) * 0.35;
           
-          const moveX = (deltaX * force * speed);
-          const moveY = (deltaY * force * speed);
+          const paradoxFactor = -0.8;
+          const moveX = (deltaX * force * speed * paradoxFactor);
+          const moveY = (deltaY * force * speed * paradoxFactor);
           
-          element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(${1 + force * 0.5})`;
-          element.style.opacity = `${0.3 + force * 0.6}`;
+          const scale = 1 + force * 0.8;
+          const rotation = force * 180;
+          
+          element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(${scale}) rotate(${rotation}deg)`;
+          element.style.opacity = `${0.3 + force * 0.7}`;
+          element.style.filter = `blur(${2 + (1 - force) * 6}px)`;
         });
       });
     };
@@ -128,6 +133,26 @@ const Hero: React.FC = () => {
     { bottom: '5%', left: '12%', size: 45, delay: 8.5 },
     { top: '45%', left: '40%', size: 40, delay: 9 },
     { top: '30%', right: '40%', size: 55, delay: 9.5 },
+    { top: '8%', left: '45%', size: 38, delay: 2.2 },
+    { top: '18%', right: '5%', size: 52, delay: 3.7 },
+    { top: '22%', left: '38%', size: 48, delay: 4.2 },
+    { top: '38%', right: '18%', size: 42, delay: 5.8 },
+    { top: '42%', left: '12%', size: 36, delay: 6.3 },
+    { top: '48%', right: '35%', size: 58, delay: 7.1 },
+    { top: '58%', left: '22%', size: 44, delay: 8.2 },
+    { top: '62%', right: '28%', size: 40, delay: 1.8 },
+    { top: '72%', left: '40%', size: 50, delay: 2.8 },
+    { top: '78%', right: '45%', size: 46, delay: 3.3 },
+    { bottom: '42%', left: '25%', size: 54, delay: 4.8 },
+    { bottom: '38%', right: '20%', size: 38, delay: 5.3 },
+    { bottom: '32%', left: '45%', size: 48, delay: 6.8 },
+    { bottom: '28%', right: '35%', size: 42, delay: 7.3 },
+    { bottom: '22%', left: '8%', size: 56, delay: 8.8 },
+    { bottom: '18%', right: '42%', size: 36, delay: 1.3 },
+    { bottom: '12%', left: '30%', size: 52, delay: 2.3 },
+    { bottom: '8%', right: '15%', size: 44, delay: 3.8 },
+    { top: '3%', left: '50%', size: 40, delay: 4.3 },
+    { top: '85%', right: '50%', size: 46, delay: 5.6 },
   ];
 
   return (
