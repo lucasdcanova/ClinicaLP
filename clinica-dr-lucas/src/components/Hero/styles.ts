@@ -79,8 +79,8 @@ export const HeroLogo = styled.img`
   }
 
   @media (max-width: 768px) {
-    height: 180px;
-    max-width: 450px;
+    height: 120px;
+    max-width: 90%;
     margin-bottom: 30px;
   }
 `;
