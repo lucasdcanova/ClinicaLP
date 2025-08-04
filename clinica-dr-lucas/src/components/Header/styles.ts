@@ -22,6 +22,11 @@ export const HeaderContent = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 40px;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+    padding: 0 15px;
+  }
 `;
 
 export const Logo = styled.img`
@@ -39,8 +44,8 @@ export const Logo = styled.img`
   }
 
   @media (max-width: 768px) {
-    height: 60px;
-    max-width: 180px;
+    height: 50px;
+    max-width: 150px;
   }
 `;
 
@@ -150,3 +155,4 @@ export const CloseButton = styled.button`
   font-size: 28px;
   cursor: pointer;
 `;
+
