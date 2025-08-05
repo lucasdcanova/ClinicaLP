@@ -3,10 +3,10 @@ import { useInView } from 'react-intersection-observer';
 import { 
   Stethoscope, 
   Activity, 
-  Heart, 
-  Shield,
+  Heart,
   ArrowRight,
-  Microscope
+  Microscope,
+  Scan
 } from 'lucide-react';
 import {
   ServicesContainer,
@@ -46,13 +46,16 @@ const Services: React.FC = () => {
     {
       id: 1,
       icon: <Stethoscope />,
-      title: 'Cirurgia Geral',
+      title: 'Cirurgias',
       description: 'Procedimentos cirúrgicos modernos com técnicas minimamente invasivas para recuperação mais rápida.',
       features: [
         'Colecistectomia com 3 portais',
         'Herniorrafias avançadas',
         'Cirurgias abdominais complexas',
-        'Técnicas laparoscópicas'
+        'Técnicas laparoscópicas',
+        'Apendicectomias',
+        'Cirurgias de emergência',
+        'Procedimentos eletivos'
       ],
       badge: 'Destaque'
     },
@@ -89,22 +92,22 @@ const Services: React.FC = () => {
         'Refluxo gastroesofágico',
         'Doença inflamatória intestinal',
         'Síndrome do intestino irritável',
-        'Gastrites e úlceras',
-        'Avaliação de lesões de pele',
-        'Dermatologia'
+        'Gastrites e úlceras'
       ]
     },
     {
       id: 5,
-      icon: <Shield />,
-      title: 'Cirurgias Abdominais',
-      description: 'Procedimentos especializados com foco em segurança e resultados excepcionais.',
+      icon: <Scan />,
+      title: 'Dermatologia',
+      description: 'Avaliação e tratamento especializado de condições dermatológicas.',
       features: [
-        'Apendicectomias',
-        'Cirurgias de emergência',
-        'Procedimentos eletivos',
-        'Pós-operatório humanizado'
-      ]
+        'Avaliação de lesões de pele',
+        'Diagnóstico de doenças de pele',
+        'Dermatoscopia',
+        'Tratamento de lesões benignas',
+        'Orientação preventiva'
+      ],
+      badge: 'Novo'
     },
     {
       id: 6,
@@ -116,8 +119,7 @@ const Services: React.FC = () => {
         'Exames laboratoriais',
         'Orientação nutricional',
         'Acompanhamento regular'
-      ],
-      badge: 'Novo'
+      ]
     }
   ];
 
