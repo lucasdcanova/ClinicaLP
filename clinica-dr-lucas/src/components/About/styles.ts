@@ -94,7 +94,7 @@ export const SurgeryBadge = styled(motion.div)`
   position: absolute;
   top: -20px;
   left: -20px;
-  background: var(--gradient-secondary);
+  background: var(--gradient-primary);
   color: var(--primary-dark);
   padding: 25px;
   border-radius: 20px;
