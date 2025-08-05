@@ -98,14 +98,15 @@ const Services: React.FC = () => {
     {
       id: 5,
       icon: <Scan />,
-      title: 'Dermatologia',
-      description: 'Avaliação e tratamento especializado de condições dermatológicas.',
+      title: 'Dermatologia Cirúrgica',
+      description: 'Procedimentos cirúrgicos dermatológicos com técnica refinada e resultados estéticos.',
       features: [
-        'Avaliação de lesões de pele',
-        'Diagnóstico de doenças de pele',
-        'Dermatoscopia',
-        'Tratamento de lesões benignas',
-        'Orientação preventiva'
+        'Excisão de lesões cutâneas',
+        'Biópsias de pele',
+        'Remoção de cistos e lipomas',
+        'Cirurgia de nevos e verrugas',
+        'Cauterização de lesões',
+        'Suturas estéticas'
       ],
       badge: 'Novo'
     },
