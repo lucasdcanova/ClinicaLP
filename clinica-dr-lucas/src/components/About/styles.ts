@@ -90,6 +90,19 @@ export const ExperienceBadge = styled(motion.div)`
   min-width: 150px;
 `;
 
+export const SurgeryBadge = styled(motion.div)`
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background: var(--gradient-secondary);
+  color: var(--primary-dark);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-strong);
+  text-align: center;
+  min-width: 150px;
+`;
+
 export const ExperienceNumber = styled.h3`
   font-size: 36px;
   font-weight: 700;

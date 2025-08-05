@@ -9,6 +9,7 @@ import {
   ExperienceBadge,
   ExperienceNumber,
   ExperienceText,
+  SurgeryBadge,
   TextSection,
   AboutSubtitle,
   AboutTitle,
@@ -88,6 +89,16 @@ const About: React.FC = () => {
             <ExperienceNumber>4000+</ExperienceNumber>
             <ExperienceText>Endoscopias Realizadas</ExperienceText>
           </ExperienceBadge>
+          
+          <SurgeryBadge
+            initial={{ scale: 0 }}
+            animate={inView ? { scale: 1 } : {}}
+            transition={{ delay: 0.7, type: 'spring' }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <ExperienceNumber>5000+</ExperienceNumber>
+            <ExperienceText>Cirurgias Realizadas</ExperienceText>
+          </SurgeryBadge>
         </ImageSection>
 
         <TextSection

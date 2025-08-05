@@ -89,7 +89,9 @@ const Services: React.FC = () => {
         'Refluxo gastroesofágico',
         'Doença inflamatória intestinal',
         'Síndrome do intestino irritável',
-        'Gastrites e úlceras'
+        'Gastrites e úlceras',
+        'Avaliação de lesões de pele',
+        'Dermatologia'
       ]
     },
     {

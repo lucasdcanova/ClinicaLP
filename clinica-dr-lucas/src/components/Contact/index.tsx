@@ -109,11 +109,16 @@ const Contact: React.FC = () => {
                 <InfoIcon>
                   <MapPin />
                 </InfoIcon>
-                <InfoTitle>Localização</InfoTitle>
+                <InfoTitle>Localizações</InfoTitle>
               </InfoHeader>
               <InfoContent>
+                <InfoText style={{ fontWeight: 'bold', marginBottom: '8px' }}>Três Passos:</InfoText>
                 <InfoText>Rua Julio de Castilhos, 1268 - Centro</InfoText>
-                <InfoText>Três Passos, RS</InfoText>
+                <InfoText style={{ marginBottom: '16px' }}>Três Passos, RS</InfoText>
+                
+                <InfoText style={{ fontWeight: 'bold', marginBottom: '8px' }}>Crissiumal:</InfoText>
+                <InfoText>Avenida Santa Rosa, nº 443 - Centro</InfoText>
+                <InfoText>Crissiumal, RS - CEP 98640-000</InfoText>
               </InfoContent>
             </InfoCard>
 
@@ -131,11 +136,17 @@ const Contact: React.FC = () => {
                 <InfoTitle>Telefones</InfoTitle>
               </InfoHeader>
               <InfoContent>
-                <InfoText>
+                <InfoText style={{ fontWeight: 'bold', marginBottom: '8px' }}>Três Passos:</InfoText>
+                <InfoText style={{ marginBottom: '16px' }}>
                   WhatsApp: <InfoLink href="https://wa.me/5555996909381">+55 55 99690-9381</InfoLink>
                 </InfoText>
+                
+                <InfoText style={{ fontWeight: 'bold', marginBottom: '8px' }}>Crissiumal:</InfoText>
                 <InfoText>
-                  E-mail: <InfoLink href="mailto:dr@lucascanova.com">dr@lucascanova.com</InfoLink>
+                  Telefone: <InfoLink href="tel:+555535241354">(55) 3524-1354</InfoLink>
+                </InfoText>
+                <InfoText>
+                  WhatsApp: <InfoLink href="https://wa.me/5555992014181">(55) 99201-4181</InfoLink>
                 </InfoText>
               </InfoContent>
             </InfoCard>
