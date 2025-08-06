@@ -7,7 +7,7 @@ export const HeaderContainer = styled(motion.header)<{ scrolled: boolean }>`
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: ${props => props.scrolled ? '15px 0' : '25px 0'};
+  padding: ${props => props.scrolled ? '20px 0' : '35px 0'};
   background: ${props => props.scrolled ? 'rgba(27, 35, 50, 0.98)' : 'transparent'};
   backdrop-filter: ${props => props.scrolled ? 'blur(10px)' : 'none'};
   transition: all 0.3s ease;

@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
                   <Instagram size={20} />
                 </SocialLink>
                 <SocialLink
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/lucasdcanova"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
                   <Facebook size={20} />
                 </SocialLink>
                 <SocialLink
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/lucascanovamd/"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}

@@ -107,8 +107,7 @@ const Services: React.FC = () => {
         'Cirurgia de nevos e verrugas',
         'Cauterização de lesões',
         'Suturas estéticas'
-      ],
-      badge: 'Novo'
+      ]
     },
     {
       id: 6,
