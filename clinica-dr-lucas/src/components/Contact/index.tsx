@@ -200,7 +200,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <MapFrame
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3524.8969361571827!2d-53.93167668505295!3d-27.934722082703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94fcd5c0c5a5a5a5%3A0x5a5a5a5a5a5a5a5a!2sTr%C3%AAs%20Passos%2C%20RS!5e0!3m2!1spt-BR!2sbr!4v1234567890123"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3555.7831833444855!2d-53.93340762349529!3d-27.006570976925426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94fc51d1f0f6d6f7%3A0x4e7e28f0d7a9e8f5!2sRua%20J%C3%BAlio%20de%20Castilhos%2C%201268%20-%20Centro%2C%20Tr%C3%AAs%20Passos%20-%20RS%2C%2098600-000!5e0!3m2!1spt-BR!2sbr!4v1709571234567"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
