@@ -7,11 +7,15 @@ export const HeaderContainer = styled(motion.header)<{ scrolled: boolean }>`
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: ${props => props.scrolled ? '20px 0' : '35px 0'};
+  padding: ${props => props.scrolled ? '15px 0' : '20px 0'};
   background: ${props => props.scrolled ? 'rgba(27, 35, 50, 0.98)' : 'transparent'};
   backdrop-filter: ${props => props.scrolled ? 'blur(10px)' : 'none'};
   transition: all 0.3s ease;
   box-shadow: ${props => props.scrolled ? '0 2px 20px rgba(0, 0, 0, 0.1)' : 'none'};
+  
+  @media (max-width: 768px) {
+    padding: ${props => props.scrolled ? '20px 0' : '35px 0'};
+  }
 `;
 
 export const HeaderContent = styled.div`
@@ -30,13 +34,13 @@ export const HeaderContent = styled.div`
 `;
 
 export const Logo = styled.img`
-  height: 80px;
+  height: 60px;
   cursor: pointer;
   transition: transform 0.3s ease;
   background: transparent;
   mix-blend-mode: normal;
   width: auto;
-  max-width: 200px;
+  max-width: 180px;
   object-fit: contain;
 
   &:hover {
