@@ -212,6 +212,7 @@ const Services: React.FC = () => {
             </ServiceFeatures>
             
             <ServiceLink
+              href="#contact"
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
             >
