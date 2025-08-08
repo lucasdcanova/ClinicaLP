@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import {
   HeroContainer,
   BackgroundPattern,
@@ -20,6 +20,12 @@ const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  
+  // Tilt do conteúdo baseado no mouse (com molas para suavizar)
+  const tiltX = useMotionValue(0);
+  const tiltY = useMotionValue(0);
+  const tiltXSpring = useSpring(tiltX, { stiffness: 120, damping: 14, mass: 0.3 });
+  const tiltYSpring = useSpring(tiltY, { stiffness: 120, damping: 14, mass: 0.3 });
 
   useEffect(() => {
     let rafId: number;
@@ -31,17 +37,22 @@ const Hero: React.FC = () => {
       rafId = requestAnimationFrame(() => {
         const { clientX, clientY } = e;
         const rect = containerRef.current!.getBoundingClientRect();
-        const { width, height } = rect;
+        const { width, height, left, top } = rect;
         
-        const x = (clientX / width - 0.5) * 10;
-        const y = (clientY / height - 0.5) * 10;
+        // Normaliza posição do mouse dentro do container
+        const relX = (clientX - left) / width;
+        const relY = (clientY - top) / height;
+        const x = (relX - 0.5) * 14; // amplitude um pouco maior
+        const y = (relY - 0.5) * 14;
         
         setMousePosition({ x: clientX, y: clientY });
+        tiltX.set(y * -0.8); // inverte para simular tilt 3D
+        tiltY.set(x * 0.8);
         
         const floatingElements = containerRef.current!.querySelectorAll('.floating');
         floatingElements.forEach((el, index) => {
           const element = el as HTMLElement;
-          const speed = (index + 1) * 0.3;
+          const speed = 0.4 + (index % 3) * 0.25; // variação de velocidade
           element.style.transform = `translate3d(${x * speed}px, ${y * speed}px, 0)`;
         });
         
@@ -56,19 +67,19 @@ const Hero: React.FC = () => {
           const deltaY = clientY - particleCenterY;
           const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
           
-          const maxDistance = 600;
+          const maxDistance = 700; // puxa um pouco mais longe
           const force = Math.max(0, 1 - distance / maxDistance);
-          const speed = (index % 3 + 1) * 0.35;
+          const speed = (index % 3 + 1) * 0.42; // levemente mais ágil
           
           const paradoxFactor = -0.8;
           const moveX = (deltaX * force * speed * paradoxFactor);
           const moveY = (deltaY * force * speed * paradoxFactor);
           
-          const scale = 1 + force * 0.8;
+          const scale = 1 + force * 0.9;
           
           element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(${scale})`;
-          element.style.opacity = `${0.3 + force * 0.7}`;
-          element.style.filter = `blur(${4 + (1 - force) * 12}px)`;
+          element.style.opacity = `${0.28 + force * 0.72}`;
+          element.style.filter = `blur(${6 + (1 - force) * 14}px)`;
         });
       });
     };
@@ -175,7 +186,12 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <HeroContainer id="home" ref={containerRef}>
+    <HeroContainer id="home" ref={containerRef}
+      as={motion.section}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
       <BackgroundPattern />
       
       <MouseFollower
@@ -192,8 +208,14 @@ const Hero: React.FC = () => {
         }}
       />
       
-      <GradientOrb top="20%" left="-20%" className="floating" />
-      <GradientOrb bottom="20%" right="-20%" className="floating" />
+      <GradientOrb top="20%" left="-20%" className="floating" 
+        animate={{ x: [0, 10, 0], y: [0, -8, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <GradientOrb bottom="20%" right="-20%" className="floating"
+        animate={{ x: [0, -12, 0], y: [0, 10, 0] }}
+        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+      />
       
       {particlePositions.map((pos, index) => (
         <FloatingParticle
@@ -210,12 +232,12 @@ const Hero: React.FC = () => {
         />
       ))}
       
-      <FloatingElement
+    <FloatingElement
         className="floating"
         style={{ top: '10%', left: '-10%' }}
         animate={{
-          scale: [1, 1.1, 1],
-          rotate: [0, 360]
+      scale: [1, 1.08, 1],
+      rotate: [0, 360]
         }}
         transition={{
           duration: 30,
@@ -228,7 +250,7 @@ const Hero: React.FC = () => {
         className="floating"
         style={{ bottom: '10%', right: '-10%' }}
         animate={{
-          scale: [1.1, 1, 1.1],
+          scale: [1.06, 1, 1.06],
           rotate: [360, 0]
         }}
         transition={{
@@ -238,7 +260,14 @@ const Hero: React.FC = () => {
         }}
       />
 
-      <HeroContent>
+      <HeroContent
+        style={{
+          transformStyle: 'preserve-3d',
+          perspective: 800,
+          rotateX: tiltXSpring,
+          rotateY: tiltYSpring,
+        }}
+      >
         <TextContent
           as={motion.div}
           variants={containerVariants}
@@ -250,6 +279,12 @@ const Hero: React.FC = () => {
             alt="Dr. Lucas Dickel Canova"
             loading="eager"
             fetchPriority="high"
+            animate={{
+              y: [0, -6, 0, 4, 0],
+              scale: [1, 1.01, 1],
+              rotateZ: [0, 0.2, 0, -0.2, 0]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
           />
           
           

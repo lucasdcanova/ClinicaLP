@@ -36,7 +36,7 @@ export const FloatingElement = styled(motion.div)`
   transform: translateZ(0);
 `;
 
-export const HeroContent = styled.div`
+export const HeroContent = styled(motion.div)`
   max-width: 900px;
   margin: 0 auto;
   padding: 0 20px;
@@ -50,7 +50,7 @@ export const HeroContent = styled.div`
 
 export const TextContent = styled(motion.div)``;
 
-export const HeroLogo = styled.img`
+export const HeroLogo = styled(motion.img)`
   height: 320px;
   margin: 0 auto 40px;
   opacity: 0.95;
@@ -65,6 +65,7 @@ export const HeroLogo = styled.img`
     drop-shadow(0 0 60px rgba(0, 206, 209, 0.25));
   transition: transform 0.3s ease, filter 0.3s ease;
   cursor: pointer;
+  will-change: transform, filter;
   
   &:hover {
     transform: translateY(-5px) scale(1.02);
@@ -270,18 +271,23 @@ export const FloatingParticle = styled(motion.div)<{ size: number; delay: number
     pulse ${props => 4 + props.delay * 0.3}s ease-in-out infinite;
   animation-delay: ${props => props.delay}s;
   
+  @media (prefers-reduced-motion: reduce) {
+    animation: none !important;
+    transition: none !important;
+  }
+  
   @keyframes float {
     0%, 100% {
       transform: translateY(0) translateX(0);
     }
     25% {
-      transform: translateY(-30px) translateX(20px);
+  transform: translateY(-45px) translateX(28px);
     }
     50% {
-      transform: translateY(20px) translateX(-30px);
+  transform: translateY(35px) translateX(-40px);
     }
     75% {
-      transform: translateY(-10px) translateX(10px);
+  transform: translateY(-15px) translateX(18px);
     }
   }
   
@@ -318,6 +324,23 @@ export const GradientOrb = styled(motion.div)<{ top?: string; left?: string; rig
   ${props => props.left && `left: ${props.left};`}
   ${props => props.right && `right: ${props.right};`}
   ${props => props.bottom && `bottom: ${props.bottom};`}
+  animation: orbPulse 12s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  @keyframes orbPulse {
+    0%, 100% {
+      opacity: 0.1;
+      filter: blur(60px);
+    }
+    50% {
+      opacity: 0.18;
+      filter: blur(72px);
+    }
+  }
   
   @media (max-width: 768px) {
     width: 250px;
