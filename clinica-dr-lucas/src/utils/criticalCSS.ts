@@ -72,6 +72,13 @@ export const criticalCSS = `
     font-display: swap;
     src: local('Oswald'), url('https://fonts.gstatic.com/s/oswald/v53/TK3iWkUHHAIjg752FD8Ghe4.woff2') format('woff2');
   }
+
+  /* Opcional: Bebas Neue (se utilizada em algum título/logotipo) */
+  @font-face {
+    font-family: 'Bebas Neue';
+    font-display: swap;
+    src: local('Bebas Neue'), url('https://fonts.gstatic.com/s/bebasneue/v12/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2') format('woff2');
+  }
   
   /* Prevent CLS for images */
   img {

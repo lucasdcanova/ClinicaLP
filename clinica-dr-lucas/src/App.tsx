@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { useGSAP } from './hooks/useGSAP';
 import Header from './components/Header';
@@ -13,13 +13,7 @@ function App() {
   const gsapRef = useGSAP();
   // useMouseFollower(); // Desabilitado temporariamente para melhorar performance
 
-  useEffect(() => {
-    // Adiciona fonte Poppins
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
-  }, []);
+  // Removido carregamento de fonte Poppins via Google Fonts para reduzir recursos bloqueantes
 
   return (
     <div ref={gsapRef}>

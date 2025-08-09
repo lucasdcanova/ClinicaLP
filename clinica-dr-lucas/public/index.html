@@ -27,10 +27,11 @@
     <meta name="googlebot" content="index, follow" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo_simbolo_sem_fundo.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preload da imagem LCP da seção Hero -->
+  <link rel="preload" as="image" href="/logo-hero-completo.png" imagesrcset="/logo-hero-completo.png" fetchpriority="high">
+  <!-- Removido stylesheet de Google Fonts para evitar bloqueio; fontes são carregadas via @font-face com font-display:swap no critical CSS -->
     <title>Dr. Lucas Dickel Canova - Clínica Cirúrgica | Três Passos, RS</title>
   </head>
   <body>

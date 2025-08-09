@@ -6,7 +6,7 @@ export const preloadCriticalResources = () => {
   const fonts = [
     'https://fonts.gstatic.com/s/ibmplexsans/v19/zYX7KVElMYYaJe8bpLHnCwDKhdXeFaxOedc.woff2',
     'https://fonts.gstatic.com/s/oswald/v53/TK3iWkUHHAIjg752FD8Ghe4.woff2',
-    'https://fonts.gstatic.com/s/bebasneuebook/v14/9377IhKj30u8RjLaUdKIi5kN6cRvDOeo.woff2'
+    'https://fonts.gstatic.com/s/bebasneue/v12/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2'
   ];
 
   fonts.forEach(font => {
