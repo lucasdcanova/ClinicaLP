@@ -8,6 +8,12 @@ export const useGSAP = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+    // Em mobile/pointer coarse ou quando reduzido, não inicializa animações de scroll custosas
+    if (isReduced || !isFinePointer) {
+      return;
+    }
     const ctx = gsap.context(() => {
       // Animação de fade in para elementos com classe .fade-in
       gsap.utils.toArray('.fade-in').forEach((element: any) => {

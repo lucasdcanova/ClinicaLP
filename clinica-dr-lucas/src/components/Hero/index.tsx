@@ -20,6 +20,9 @@ const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const floatingElsRef = useRef<HTMLElement[]>([]);
+  const particlesRef = useRef<Array<{ el: HTMLElement; cx: number; cy: number }>>([]);
+  const containerRectRef = useRef<{ left: number; top: number; width: number; height: number } | null>(null);
   
   // Tilt do conteúdo baseado no mouse (com molas para suavizar)
   const tiltX = useMotionValue(0);
@@ -28,71 +31,90 @@ const Hero: React.FC = () => {
   const tiltYSpring = useSpring(tiltY, { stiffness: 120, damping: 14, mass: 0.3 });
 
   useEffect(() => {
+    const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+    if (isReduced || !isFinePointer) {
+      // Em mobile/pointer coarse ou se o usuário preferir menos movimento, não registra listeners
+      return;
+    }
+
     let rafId: number;
-    const handleMouseMove = (e: MouseEvent) => {
+
+    // Cacheia elementos e posições para evitar leituras de layout por frame
+    const cacheElements = () => {
       if (!containerRef.current) return;
-      
+      const rect = containerRef.current.getBoundingClientRect();
+      containerRectRef.current = { left: rect.left, top: rect.top, width: rect.width, height: rect.height };
+      floatingElsRef.current = Array.from(containerRef.current.querySelectorAll('.floating')) as HTMLElement[];
+      const particleNodes = Array.from(containerRef.current.querySelectorAll('.particle')) as HTMLElement[];
+      particlesRef.current = particleNodes.map((el) => {
+        const r = el.getBoundingClientRect();
+        return { el, cx: r.left + r.width / 2, cy: r.top + r.height / 2 };
+      });
+    };
+
+    const handleResize = () => {
+      // Debounce via rAF
       if (rafId) cancelAnimationFrame(rafId);
-      
+      rafId = requestAnimationFrame(cacheElements);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRectRef.current) return;
+
+      if (rafId) cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
         const { clientX, clientY } = e;
-        const rect = containerRef.current!.getBoundingClientRect();
-        const { width, height, left, top } = rect;
-        
-        // Normaliza posição do mouse dentro do container
+        const { width, height, left, top } = containerRectRef.current!;
+        // Normaliza posição do mouse dentro do container (sem ler layout agora)
         const relX = (clientX - left) / width;
         const relY = (clientY - top) / height;
-        const x = (relX - 0.5) * 14; // amplitude um pouco maior
+        const x = (relX - 0.5) * 14;
         const y = (relY - 0.5) * 14;
-        
+
         setMousePosition({ x: clientX, y: clientY });
-        tiltX.set(y * -0.8); // inverte para simular tilt 3D
+        tiltX.set(y * -0.8);
         tiltY.set(x * 0.8);
-        
-        const floatingElements = containerRef.current!.querySelectorAll('.floating');
-        floatingElements.forEach((el, index) => {
-          const element = el as HTMLElement;
-          const speed = 0.4 + (index % 3) * 0.25; // variação de velocidade
+
+        // Apenas writes de transform (sem leituras de layout)
+        floatingElsRef.current.forEach((element, index) => {
+          const speed = 0.4 + (index % 3) * 0.25;
           element.style.transform = `translate3d(${x * speed}px, ${y * speed}px, 0)`;
         });
-        
-        const particles = containerRef.current!.querySelectorAll('.particle');
-        particles.forEach((el, index) => {
-          const element = el as HTMLElement;
-          const rect = element.getBoundingClientRect();
-          const particleCenterX = rect.left + rect.width / 2;
-          const particleCenterY = rect.top + rect.height / 2;
-          
-          const deltaX = clientX - particleCenterX;
-          const deltaY = clientY - particleCenterY;
+
+        particlesRef.current.forEach(({ el, cx, cy }, index) => {
+          const deltaX = clientX - cx;
+          const deltaY = clientY - cy;
           const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-          
-          const maxDistance = 700; // puxa um pouco mais longe
+          const maxDistance = 700;
           const force = Math.max(0, 1 - distance / maxDistance);
-          const speed = (index % 3 + 1) * 0.42; // levemente mais ágil
-          
+          const speed = (index % 3 + 1) * 0.42;
           const paradoxFactor = -0.8;
-          const moveX = (deltaX * force * speed * paradoxFactor);
-          const moveY = (deltaY * force * speed * paradoxFactor);
-          
+          const moveX = deltaX * force * speed * paradoxFactor;
+          const moveY = deltaY * force * speed * paradoxFactor;
           const scale = 1 + force * 0.9;
-          
-          element.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(${scale})`;
-          element.style.opacity = `${0.28 + force * 0.72}`;
-          element.style.filter = `blur(${6 + (1 - force) * 14}px)`;
+          el.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(${scale})`;
+          el.style.opacity = `${0.28 + force * 0.72}`;
+          el.style.filter = `blur(${6 + (1 - force) * 14}px)`;
         });
       });
     };
-    
+
     const handleMouseEnter = () => setIsHovered(true);
     const handleMouseLeave = () => setIsHovered(false);
 
+    // Inicializa cache após layout estar pronto
+    requestAnimationFrame(cacheElements);
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('scroll', handleResize, { passive: true });
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     containerRef.current?.addEventListener('mouseenter', handleMouseEnter);
     containerRef.current?.addEventListener('mouseleave', handleMouseLeave);
-    
+
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize as any);
+      window.removeEventListener('scroll', handleResize as any);
+      window.removeEventListener('mousemove', handleMouseMove as any);
       containerRef.current?.removeEventListener('mouseenter', handleMouseEnter);
       containerRef.current?.removeEventListener('mouseleave', handleMouseLeave);
       if (rafId) cancelAnimationFrame(rafId);
