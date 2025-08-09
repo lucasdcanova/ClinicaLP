@@ -2,22 +2,21 @@
 
 // Preload critical resources
 export const preloadCriticalResources = () => {
-  // Preload fonts
-  const fonts = [
-    'https://fonts.gstatic.com/s/ibmplexsans/v19/zYX7KVElMYYaJe8bpLHnCwDKhdXeFaxOedc.woff2',
-    'https://fonts.gstatic.com/s/oswald/v53/TK3iWkUHHAIjg752FD8Ghe4.woff2',
-    'https://fonts.gstatic.com/s/bebasneue/v12/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2'
-  ];
-
-  fonts.forEach(font => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'font';
-    link.type = 'font/woff2';
-    link.href = font;
-    link.crossOrigin = 'anonymous';
-    document.head.appendChild(link);
-  });
+  // Já pré-carregadas no index.html via <link rel="preload"> para fontes locais.
+  // Se desejar fallback remoto, descomente abaixo:
+  // const fallbackFonts = [
+  //   'https://fonts.gstatic.com/s/ibmplexsans/v19/zYX7KVElMYYaJe8bpLHnCwDKhdXeFaxOedc.woff2',
+  //   'https://fonts.gstatic.com/s/oswald/v53/TK3iWkUHHAIjg752FD8Ghe4.woff2'
+  // ];
+  // fallbackFonts.forEach(font => {
+  //   const link = document.createElement('link');
+  //   link.rel = 'preload';
+  //   link.as = 'font';
+  //   link.type = 'font/woff2';
+  //   link.href = font;
+  //   link.crossOrigin = 'anonymous';
+  //   document.head.appendChild(link);
+  // });
 };
 
 // Lazy load images with Intersection Observer

@@ -3,10 +3,6 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializePerformanceOptimizations } from './utils/performanceOptimizations';
-import { injectCriticalCSS } from './utils/criticalCSS';
-
-// Inject critical CSS immediately
-injectCriticalCSS();
 
 // Initialize performance optimizations
 initializePerformanceOptimizations();
