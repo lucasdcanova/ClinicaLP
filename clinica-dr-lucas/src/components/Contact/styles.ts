@@ -234,3 +234,83 @@ export const TimeRange = styled.span`
   color: var(--primary-cyan);
   font-weight: 500;
 `;
+
+export const WhatsAppBlock = styled(motion.div)`
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+    
+    &:before {
+      opacity: 1;
+    }
+  }
+`;
+
+export const WhatsAppContent = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: white;
+  position: relative;
+  z-index: 1;
+`;
+
+export const WhatsAppIcon = styled.div`
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const WhatsAppInfo = styled.div`
+  flex: 1;
+`;
+
+export const WhatsAppLabel = styled.div`
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-bottom: 4px;
+`;
+
+export const WhatsAppNumber = styled.div`
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+`;
+
+export const WhatsAppCTA = styled.div`
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 4px;
+`;

@@ -36,7 +36,14 @@ import {
   HoursList,
   HourItem,
   DayName,
-  TimeRange
+  TimeRange,
+  WhatsAppBlock,
+  WhatsAppContent,
+  WhatsAppIcon,
+  WhatsAppInfo,
+  WhatsAppLabel,
+  WhatsAppNumber,
+  WhatsAppCTA
 } from './styles';
 
 const Contact: React.FC = () => {
@@ -133,21 +140,50 @@ const Contact: React.FC = () => {
                 <InfoIcon>
                   <Phone />
                 </InfoIcon>
-                <InfoTitle>Telefones</InfoTitle>
+                <InfoTitle>Contato</InfoTitle>
               </InfoHeader>
               <InfoContent>
                 <InfoText style={{ fontWeight: 'bold', marginBottom: '8px' }}>Três Passos:</InfoText>
-                <InfoText style={{ marginBottom: '16px' }}>
-                  WhatsApp: <InfoLink href="https://wa.me/5555996909381">+55 55 99690-9381</InfoLink>
-                </InfoText>
                 
-                <InfoText style={{ fontWeight: 'bold', marginBottom: '8px' }}>Crissiumal:</InfoText>
+                <WhatsAppBlock
+                  onClick={() => window.open('https://wa.me/5555996909381?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta', '_blank')}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <WhatsAppContent>
+                    <WhatsAppIcon>
+                      <MessageCircle />
+                    </WhatsAppIcon>
+                    <WhatsAppInfo>
+                      <WhatsAppLabel>WhatsApp Três Passos</WhatsAppLabel>
+                      <WhatsAppNumber>(55) 99690-9381</WhatsAppNumber>
+                      <WhatsAppCTA>Clique para conversar</WhatsAppCTA>
+                    </WhatsAppInfo>
+                  </WhatsAppContent>
+                </WhatsAppBlock>
+                
+                <InfoText style={{ fontWeight: 'bold', marginBottom: '8px', marginTop: '16px' }}>Crissiumal:</InfoText>
                 <InfoText>
                   Telefone: <InfoLink href="tel:+555535241354">(55) 3524-1354</InfoLink>
                 </InfoText>
-                <InfoText>
-                  WhatsApp: <InfoLink href="https://wa.me/5555992014181">(55) 99201-4181</InfoLink>
-                </InfoText>
+                
+                <WhatsAppBlock
+                  onClick={() => window.open('https://wa.me/5555992014181?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta', '_blank')}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  style={{ marginTop: '8px' }}
+                >
+                  <WhatsAppContent>
+                    <WhatsAppIcon>
+                      <MessageCircle />
+                    </WhatsAppIcon>
+                    <WhatsAppInfo>
+                      <WhatsAppLabel>WhatsApp Crissiumal</WhatsAppLabel>
+                      <WhatsAppNumber>(55) 99201-4181</WhatsAppNumber>
+                      <WhatsAppCTA>Clique para conversar</WhatsAppCTA>
+                    </WhatsAppInfo>
+                  </WhatsAppContent>
+                </WhatsAppBlock>
               </InfoContent>
             </InfoCard>
 
