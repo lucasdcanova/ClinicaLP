@@ -236,7 +236,7 @@ export const TimeRange = styled.span`
 `;
 
 export const WhatsAppBlock = styled(motion.div)`
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  background: var(--gradient-primary);
   border-radius: 12px;
   padding: 20px;
   margin: 16px 0;
@@ -259,7 +259,7 @@ export const WhatsAppBlock = styled(motion.div)`
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+    box-shadow: var(--shadow-strong);
     
     &:before {
       opacity: 1;
@@ -289,6 +289,7 @@ export const WhatsAppIcon = styled.div`
   svg {
     width: 24px;
     height: 24px;
+    color: white;
   }
 `;
 
