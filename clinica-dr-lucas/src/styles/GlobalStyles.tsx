@@ -39,11 +39,10 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
   }
 
   p {
